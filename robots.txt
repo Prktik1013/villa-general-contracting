@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://Prktik1013.github.io/villa-general-contracting/sitemap.xml

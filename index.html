@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en"><script>document.documentElement.classList.add("js-motion");</script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Villa General Contracting - industrial general contractor in Ontario CA. Warehouses, manufacturing plants, tilt-up concrete, steel frame. Contact estimating." />
+  <meta property="og:title" content="Villa General Contracting | Industrial GC - Ontario CA" />
+  <meta property="og:description" content="Industrial GC for warehouses, manufacturing plants, and tilt-up shells across the Inland Empire. Contact Villa GC." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="theme-color" content="#2a3038" />
+  <title>Villa General Contracting | Industrial GC - Ontario CA and Inland Empire</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='3' fill='%231a1e24'/%3E%3Cpath d='M6 22V10h4.2l3.4 8.6L17 10H21v12h-3.1v-7.2L14.4 22h-2.8l-3.5-7.2V22H6zm17.2 0l3.4-12H30l-3.4 12h-3.4z' fill='%23c45c26'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: oklch(0.18 0.014 250);
+      --bg-elevated: oklch(0.23 0.015 248);
+      --surface: oklch(0.27 0.016 246);
+      --surface-2: oklch(0.32 0.018 244);
+      --fg: oklch(0.96 0.008 250);
+      --fg-muted: oklch(0.76 0.02 248);
+      --border: oklch(0.4 0.02 245);
+      --accent: oklch(0.58 0.13 42);
+      --accent-hover: oklch(0.52 0.135 40);
+      --accent-soft: oklch(0.58 0.12 42 / 0.16);
+      --steel: oklch(0.62 0.055 235);
+      --steel-soft: oklch(0.55 0.06 235 / 0.2);
+      --concrete: oklch(0.68 0.016 250);
+      --success: oklch(0.68 0.12 145);
+      --danger: oklch(0.58 0.16 25);
+      --radius: 2px;
+      --radius-panel: 6px;
+      --radius-inner: 2px;
+      --font-display: "Barlow Condensed", system-ui, sans-serif;
+      --font-body: "Barlow", system-ui, sans-serif;
+      --header-h: 68px;
+      --max-w: 1200px;
+      --shadow: 0 20px 50px oklch(0.1 0.02 250 / 0.48);
+      --shadow-sm: 0 8px 24px oklch(0.12 0.02 250 / 0.35);
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+      --dur-fast: 150ms;
+      --dur-ui: 180ms;
+      --dur-reveal: 480ms;
+      --dur-step: 280ms;
+      --z-base: 1;
+      --z-sticky: 90;
+      --z-header: 100;
+      --z-overlay: 110;
+      --z-skip: 200;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .reveal,
+      .reveal.is-in,
+      .hero-enter .hero-anim,
+      .hero-visual {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
+        animation: none !important;
+      }
+      .nav-mobile {
+        transition: none !important;
+      }
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: var(--fg);
+      background: var(--bg);
+      background-image:
+        radial-gradient(ellipse 70% 45% at 92% -5%, oklch(0.36 0.045 235 / 0.32), transparent 58%),
+        radial-gradient(ellipse 50% 40% at 0% 100%, oklch(0.28 0.03 42 / 0.12), transparent 50%),
+        linear-gradient(180deg, oklch(0.2 0.018 250) 0%, var(--bg) 32%);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: var(--z-overlay);
+      opacity: 0.045;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px 180px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -100px;
+      z-index: var(--z-skip);
+      padding: 0.65rem 1rem;
+      background: var(--accent);
+      color: oklch(0.99 0.01 85);
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: var(--radius-inner);
+      transition: top 0.15s var(--ease);
+    }
+    .skip-link:focus {
+      top: 0.75rem;
+      outline: 2px solid var(--fg);
+      outline-offset: 2px;
+    }
+
+    img { max-width: 100%; display: block; }
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      line-height: 1.05;
+      margin: 0 0 0.75rem;
+      color: var(--fg);
+      text-wrap: balance;
+    }
+    h1 { font-size: clamp(2.5rem, 5.6vw, 3.9rem); max-width: 13ch; letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.75rem, 3.4vw, 2.55rem); letter-spacing: -0.015em; }
+    h3 { font-size: 1.2rem; text-transform: none; letter-spacing: 0.01em; font-weight: 600; text-wrap: pretty; }
+    p { margin: 0 0 1rem; color: var(--fg-muted); max-width: 62ch; text-wrap: pretty; }
+    a { color: var(--steel); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { color: var(--accent); }
+    :focus-visible {
+      outline: 2px solid var(--steel);
+      outline-offset: 2px;
+    }
+    .tabular { font-variant-numeric: tabular-nums; }
+
+    .container { width: min(100% - 2rem, var(--max-w)); margin-inline: auto; }
+    .eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.65rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 0.8rem 1.35rem;
+      border-radius: var(--radius-inner);
+      border: 2px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background var(--dur-ui) var(--ease-out), border-color var(--dur-ui) var(--ease-out), transform var(--dur-fast) var(--ease-out), color var(--dur-ui) var(--ease-out), box-shadow var(--dur-ui) var(--ease-out);
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn:focus-visible { outline: 2px solid var(--steel); outline-offset: 3px; }
+    .btn-primary {
+      background: var(--accent);
+      color: oklch(0.99 0.01 85);
+      border-color: var(--accent);
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      border-color: var(--accent-hover);
+      color: oklch(0.99 0.01 85);
+      box-shadow: 0 10px 28px oklch(0.4 0.1 42 / 0.28);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--fg);
+      border-color: var(--border);
+    }
+    .btn-secondary:hover { border-color: var(--steel); color: var(--steel); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--fg-muted);
+      border-color: var(--border);
+      font-size: 0.8rem;
+      padding: 0.45rem 0.85rem;
+    }
+    .btn-ghost:hover { color: var(--fg); border-color: var(--steel); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: var(--z-header);
+      height: var(--header-h);
+      background: oklch(0.16 0.012 250 / 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: inset 0 -1px 0 oklch(0.5 0.02 250 / 0.08), 0 8px 28px oklch(0.1 0.02 250 / 0.25);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      gap: 1rem;
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo span { color: var(--accent); }
+    .nav-desktop {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: nowrap;
+    }
+    .nav-desktop a {
+      font-family: var(--font-display);
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .nav-desktop a:hover { color: var(--fg); }
+    .nav-desktop a.is-active,
+    .nav-mobile a.is-active {
+      color: var(--fg);
+      box-shadow: inset 0 -2px 0 var(--accent);
+    }
+    .header-actions { display: flex; align-items: center; gap: 1rem; }
+    .header-phone {
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--fg);
+      text-decoration: none;
+      white-space: nowrap;
+      font-variant-numeric: tabular-nums;
+    }
+    .header-phone:hover { color: var(--accent); }
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--fg);
+      padding: 0.45rem 0.7rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .nav-mobile {
+      display: flex;
+      position: fixed;
+      inset: var(--header-h) 0 0 0;
+      background: oklch(0.16 0.012 250 / 0.98);
+      padding: 1.25rem 1.5rem 2rem;
+      flex-direction: column;
+      gap: 0;
+      z-index: calc(var(--z-header) - 1);
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-10px);
+      transition:
+        opacity var(--dur-ui) var(--ease-out),
+        transform var(--dur-ui) var(--ease-out),
+        visibility 0s linear var(--dur-ui);
+    }
+    .nav-mobile.open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+      transition:
+        opacity var(--dur-ui) var(--ease-out),
+        transform var(--dur-ui) var(--ease-out),
+        visibility 0s linear 0s;
+    }
+    .nav-mobile a {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg);
+      text-decoration: none;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero {
+      padding: 2.75rem 0 0;
+      min-height: calc(100dvh - var(--header-h));
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 0 2.75rem;
+      align-items: stretch;
+      flex: 1;
+      width: min(100% - 2rem, var(--max-w));
+      margin-inline: auto;
+      padding-bottom: 3.25rem;
+    }
+    .hero-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1.5rem 0 2.5rem;
+      max-width: 34rem;
+      position: relative;
+      z-index: var(--z-base);
+    }
+    .hero-lead {
+      font-size: 1.125rem;
+      max-width: 36ch;
+      color: var(--concrete);
+      margin-bottom: 0;
+      line-height: 1.55;
+    }
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.75rem;
+    }
+    .hero-visual {
+      position: relative;
+      min-height: 320px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      margin-top: 0.5rem;
+      transform: translateY(0.75rem);
+    }
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      box-shadow: inset 0 0 0 1px oklch(0.9 0.01 250 / 0.06);
+      border-radius: inherit;
+    }
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 380px;
+      filter: saturate(0.85) contrast(1.05);
+    }
+    .hero-visual-cap {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 1rem 1.15rem;
+      background: linear-gradient(transparent, oklch(0.12 0.02 250 / 0.92));
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg);
+    }
+    .hero-visual-cap span { color: var(--accent); }
+
+    .trust-strip {
+      background: var(--bg-elevated);
+      border-block: 1px solid var(--border);
+      padding: 1.1rem 0;
+    }
+    .trust-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.85rem 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .trust-list li {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      flex: 1 1 auto;
+      min-width: 9rem;
+      border-left: 2px solid var(--accent);
+      padding-left: 0.65rem;
+      text-align: left;
+    }
+
+    section { padding: clamp(3.5rem, 7vw, 5.75rem) 0 clamp(3.85rem, 7.5vw, 6.25rem); }
+    .section-head {
+      max-width: 40rem;
+      margin-bottom: 2.5rem;
+      margin-right: auto;
+    }
+    .section-head p:last-child { margin-bottom: 0; max-width: 48ch; }
+    .section-head h2 { max-width: 18ch; }
+
+    .services-bento {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.9rem 1rem;
+    }
+    .svc {
+      background: var(--bg-elevated);
+      border: 1px solid transparent;
+      border-radius: var(--radius-panel);
+      padding: 1.55rem 1.45rem 1.7rem;
+      transition: transform var(--dur-ui) var(--ease-out), background var(--dur-ui) var(--ease-out), box-shadow var(--dur-ui) var(--ease-out);
+      position: relative;
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px oklch(0.45 0.02 245 / 0.55);
+    }
+    .svc:hover {
+      transform: translateY(-3px);
+      box-shadow: inset 0 0 0 1px oklch(0.55 0.03 245 / 0.7), var(--shadow-sm);
+    }
+    .svc-featured {
+      grid-row: 1 / span 2;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 0;
+      background: var(--surface);
+    }
+    .svc-featured .svc-img {
+      height: 48%;
+      min-height: 180px;
+      flex: 1;
+      overflow: hidden;
+    }
+    .svc-featured .svc-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(0.25) contrast(1.08);
+    }
+    .svc-featured .svc-body { padding: 1.5rem 1.4rem 1.6rem; }
+    .svc h3 { margin-bottom: 0.55rem; }
+    .svc p { font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .svc ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: var(--fg-muted);
+      font-size: 0.9rem;
+    }
+    .svc ul li {
+      padding: 0.35rem 0;
+      border-top: 1px solid oklch(0.38 0.02 245 / 0.6);
+    }
+    .svc ul li:first-child { border-top: none; }
+    .svc-accent {
+      background: linear-gradient(160deg, oklch(0.3 0.04 42 / 0.35), var(--bg-elevated));
+      border-color: oklch(0.45 0.08 42 / 0.5);
+    }
+    .svc-steel {
+      background: linear-gradient(160deg, oklch(0.3 0.04 235 / 0.3), var(--bg-elevated));
+    }
+    .svc-span { grid-column: 2 / -1; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0.85rem;
+    }
+    .project-tile {
+      position: relative;
+      border-radius: var(--radius-panel);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      min-height: 220px;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+    .project-tile.wide { grid-column: 1; grid-row: 1 / span 2; min-height: 100%; }
+    .project-tile img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 220px;
+      transition: transform var(--dur-reveal) var(--ease-out);
+      filter: saturate(0.8) contrast(1.05);
+    }
+    .project-tile:hover img { transform: scale(1.04); }
+    .project-meta {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 1.1rem 1.15rem;
+      background: linear-gradient(transparent, oklch(0.12 0.02 250 / 0.95));
+      z-index: 1;
+    }
+    .project-meta h3 { margin: 0; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; }
+    .project-meta p { margin: 0.3rem 0 0; font-size: 0.85rem; color: var(--concrete); }
+
+    .process-track {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, oklch(0.26 0.018 246), var(--bg-elevated)),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 11px,
+          oklch(0.4 0.02 245 / 0.12) 11px,
+          oklch(0.4 0.02 245 / 0.12) 12px
+        );
+      box-shadow: var(--shadow-sm);
+    }
+    .process-step {
+      padding: 1.75rem 1.3rem 1.95rem;
+      border-right: 1px solid var(--border);
+      position: relative;
+      transition: background var(--dur-ui) var(--ease-out);
+    }
+    .process-step:last-child { border-right: none; }
+    .process-step .verb {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.65rem;
+    }
+    .process-step h3 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+    .process-step p { margin: 0; font-size: 0.92rem; max-width: 28ch; }
+    .process-step:hover { background: oklch(0.3 0.018 246 / 0.75); }
+
+    .quote-band {
+      background:
+        radial-gradient(ellipse 60% 80% at 10% 50%, oklch(0.35 0.04 42 / 0.12), transparent 55%),
+        var(--surface);
+      border-block: 1px solid var(--border);
+      padding: clamp(2.75rem, 5.5vw, 4rem) 0 clamp(3rem, 6vw, 4.25rem);
+    }
+    .quote-band .container { max-width: 52rem; }
+    .quote-band blockquote {
+      margin: 0;
+      font-size: clamp(1.2rem, 2.4vw, 1.5rem);
+      font-style: italic;
+      color: var(--fg);
+      line-height: 1.45;
+      border-left: 3px solid var(--accent);
+      padding-left: 1.35rem;
+    }
+    .quote-band cite {
+      display: block;
+      margin-top: 1.25rem;
+      padding-left: 1.35rem;
+      font-family: var(--font-display);
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .booking-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.3fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .booking-aside h2 { margin-bottom: 0.75rem; }
+    .booking-aside p { max-width: 34ch; }
+    .booking-aside .call-block {
+      margin-top: 1.5rem;
+      padding: 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      background: var(--bg-elevated);
+      box-shadow: inset 0 1px 0 oklch(0.9 0.01 250 / 0.04);
+    }
+    .call-kicker {
+      margin: 0 0 0.35rem;
+      font-size: 0.8rem;
+      font-family: var(--font-display);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+    .call-hours {
+      margin: 0.5rem 0 0;
+      font-size: 0.88rem;
+    }
+    .booking-aside .call-block a {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--fg);
+      text-decoration: none;
+      font-variant-numeric: tabular-nums;
+    }
+    .booking-aside .call-block a:hover { color: var(--accent); }
+    .booking-panel {
+      background: linear-gradient(165deg, oklch(0.3 0.02 246), var(--bg-elevated) 55%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      padding: clamp(1.35rem, 3vw, 2.1rem) clamp(1.25rem, 3vw, 2rem) clamp(1.55rem, 3.2vw, 2.25rem);
+      box-shadow: var(--shadow);
+    }
+    .review-title {
+      color: var(--fg);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .review-summary {
+      color: var(--fg-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      max-width: none;
+    }
+    .agree-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      text-transform: none;
+      letter-spacing: 0;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--fg-muted);
+    }
+    .agree-label input {
+      width: auto;
+      margin-top: 0.25rem;
+      flex-shrink: 0;
+    }
+    .admin-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .admin-toolbar h3 {
+      margin: 0;
+      flex: 1;
+      min-width: 12rem;
+    }
+    .step-indicator {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      gap: 0.4rem;
+    }
+    .step-dot {
+      flex: 1;
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+    .step-dot span {
+      display: block;
+      width: 1.85rem;
+      height: 1.85rem;
+      margin: 0 auto 0.3rem;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      line-height: 1.6rem;
+      font-size: 0.8rem;
+      transition:
+        border-color var(--dur-ui) var(--ease-out),
+        background var(--dur-ui) var(--ease-out),
+        color var(--dur-ui) var(--ease-out),
+        transform var(--dur-fast) var(--ease-out);
+    }
+    .step-dot.active { color: var(--fg); }
+    .step-dot.active span {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      transform: scale(1.06);
+    }
+    .step-dot.done span { background: var(--accent); border-color: var(--accent); color: oklch(0.99 0.01 85); }
+
+    .form-step { display: none; }
+    .form-step.active {
+      display: block;
+      animation: step-in var(--dur-step) var(--ease-out) both;
+    }
+    @keyframes step-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    #formStatus {
+      transition: opacity var(--dur-ui) var(--ease-out), color var(--dur-ui) var(--ease-out);
+    }
+    .field { margin-bottom: 1.1rem; }
+    .field label {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      color: var(--fg-muted);
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 0.7rem 0.9rem;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--fg);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-inner);
+      transition: border-color var(--dur-ui) var(--ease-out), box-shadow var(--dur-ui) var(--ease-out);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: oklch(0.55 0.02 248); }
+    .field input:focus, .field select:focus, .field textarea:focus {
+      outline: 2px solid var(--steel);
+      outline-offset: 1px;
+      border-color: var(--steel);
+    }
+    .field.error input, .field.error select, .field.error textarea { border-color: var(--danger); }
+    .field .err-msg { color: var(--danger); font-size: 0.8rem; margin-top: 0.3rem; display: none; }
+    .field.error .err-msg { display: block; }
+    .form-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
+    .form-note { font-size: 0.85rem; color: var(--fg-muted); margin-top: 0.85rem; }
+    #formStatus:empty { display: none; }
+
+    .admin-panel {
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--border);
+      display: none;
+    }
+    .admin-panel.visible { display: block; }
+    .admin-table-wrap { overflow-x: auto; }
+    table.admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    .admin-table th, .admin-table td {
+      text-align: left;
+      padding: 0.6rem 0.65rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    .admin-table th {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+    }
+    .badge-pending {
+      display: inline-block;
+      padding: 0.15rem 0.45rem;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: var(--radius);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .contact-details {
+      margin-top: 3rem;
+    }
+    .contact-strip {
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-panel);
+      overflow: hidden;
+      background: var(--bg-elevated);
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-note { margin-top: 0.5rem; }
+    .contact-cell {
+      padding: 1.5rem 1.25rem;
+      border-right: 1px solid var(--border);
+    }
+    .contact-cell:last-child { border-right: none; }
+    .contact-cell h3 {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.55rem;
+    }
+    .contact-cell a.phone-lg {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--fg);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      font-variant-numeric: tabular-nums;
+    }
+    .contact-cell a.phone-lg:hover { color: var(--accent); }
+    .contact-cell p { margin: 0; font-size: 0.92rem; }
+
+    footer {
+      background: oklch(0.14 0.01 250);
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0 2rem;
+    }
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1.75rem 2rem;
+      align-items: flex-start;
+    }
+    .footer-blurb {
+      margin-top: 0.85rem;
+      max-width: 36ch;
+      font-size: 0.88rem;
+      color: var(--fg-muted);
+    }
+    .footer-copy { font-size: 0.88rem; color: var(--fg-muted); margin: 0; max-width: none; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 1.15rem; align-items: center; }
+    .footer-links a {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--fg-muted);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--fg); }
+    .footer-bottom {
+      margin-top: 1.85rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-legal a {
+      font-size: 0.8rem;
+      color: var(--fg-muted);
+      text-decoration: none;
+    }
+    .footer-legal a:hover { color: var(--steel); }
+
+    .legal-band {
+      padding: 2rem 0 2.5rem;
+      border-top: 1px solid var(--border);
+      background: oklch(0.16 0.012 250);
+    }
+    .legal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2.5rem;
+    }
+    .legal-note h2 {
+      font-size: 1rem;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.5rem;
+    }
+    .legal-note p {
+      margin: 0;
+      font-size: 0.88rem;
+      max-width: 48ch;
+    }
+    @media (max-width: 700px) {
+      .legal-grid { grid-template-columns: 1fr; }
+    }
+
+    .sticky-call {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-sticky);
+      padding: 0.65rem 1rem calc(0.65rem + env(safe-area-inset-bottom));
+      background: oklch(0.16 0.012 250 / 0.96);
+      border-top: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 -8px 24px oklch(0.1 0.02 250 / 0.35);
+    }
+    .sticky-call a {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 1.5rem; padding-bottom: 1.5rem; min-height: auto; }
+      .hero { min-height: 0; padding-top: 1.75rem; }
+      .hero-visual img { min-height: 240px; }
+      h1 { max-width: none; }
+      .nav-desktop, .header-phone { display: none; }
+      .menu-toggle { display: block; }
+      .services-bento { grid-template-columns: 1fr 1fr; }
+      .svc-featured { grid-column: 1 / -1; grid-row: auto; }
+      .svc-span { grid-column: 1 / -1; }
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .project-tile.wide { grid-column: 1 / -1; grid-row: auto; min-height: 260px; }
+      .process-track { grid-template-columns: 1fr 1fr; }
+      .process-step:nth-child(2) { border-right: none; }
+      .process-step:nth-child(1),
+      .process-step:nth-child(2) { border-bottom: 1px solid var(--border); }
+      .booking-layout { grid-template-columns: 1fr; }
+      .contact-strip { grid-template-columns: 1fr 1fr; }
+      .contact-cell:nth-child(2) { border-right: none; }
+      .contact-cell:nth-child(1),
+      .contact-cell:nth-child(2) { border-bottom: 1px solid var(--border); }
+      .sticky-call { display: block; }
+      body { padding-bottom: 4.5rem; }
+    }
+    @media (max-width: 560px) {
+      .services-bento,
+      .projects-grid,
+      .process-track,
+      .contact-strip { grid-template-columns: 1fr; }
+      .process-step { border-right: none; border-bottom: 1px solid var(--border); }
+      .process-step:last-child { border-bottom: none; }
+      .contact-cell { border-right: none; border-bottom: 1px solid var(--border); }
+      .contact-cell:last-child { border-bottom: none; }
+      .trust-list li { min-width: 100%; }
+      .btn { white-space: normal; }
+    }
+
+    /* --- Emil motion language: transform + opacity only --- */
+    .js-motion .hero-enter .hero-anim {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: hero-rise var(--dur-reveal) var(--ease-out) forwards;
+    }
+    .js-motion .hero-enter .hero-anim:nth-child(1) { animation-delay: 40ms; }
+    .js-motion .hero-enter .hero-anim:nth-child(2) { animation-delay: 100ms; }
+    .js-motion .hero-enter .hero-anim:nth-child(3) { animation-delay: 160ms; }
+    .js-motion .hero-enter .hero-anim:nth-child(4) { animation-delay: 220ms; }
+    .js-motion .hero-visual {
+      opacity: 0;
+      transform: translateY(1.35rem);
+      animation: hero-visual-in 0.62s var(--ease-out) 0.18s forwards;
+    }
+    @keyframes hero-rise {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes hero-visual-in {
+      to { opacity: 1; transform: translateY(0.75rem); }
+    }
+
+    .js-motion .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition:
+        opacity var(--dur-reveal) var(--ease-out),
+        transform var(--dur-reveal) var(--ease-out);
+      will-change: opacity, transform;
+    }
+    .js-motion .reveal.is-in {
+      opacity: 1;
+      transform: translateY(0);
+      will-change: auto;
+    }
+    .js-motion .reveal-d1 { transition-delay: 50ms; }
+    .js-motion .reveal-d2 { transition-delay: 100ms; }
+    .js-motion .reveal-d3 { transition-delay: 150ms; }
+    .js-motion .reveal-d4 { transition-delay: 200ms; }
+
+    .nav-desktop a,
+    .nav-mobile a,
+    .header-phone,
+    .logo {
+      transition: color var(--dur-fast) var(--ease-out), box-shadow var(--dur-ui) var(--ease-out);
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+    }
+    .btn-primary:active {
+      transform: scale(0.97) translateY(0);
+    }
+    .sticky-call {
+      transition: transform var(--dur-ui) var(--ease-out), opacity var(--dur-ui) var(--ease-out);
+    }
+    .project-tile:hover img { transform: scale(1.035); }
+    .field.error input, .field.error select, .field.error textarea {
+      animation: field-shake 0.32s var(--ease-out);
+    }
+    @keyframes field-shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-3px); }
+      75% { transform: translateX(3px); }
+    }
+    .admin-panel {
+      transition: opacity var(--dur-ui) var(--ease-out);
+    }
+    .admin-panel.visible {
+      animation: step-in var(--dur-step) var(--ease-out) both;
+    }
+  </style>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"GeneralContractor","name":"Villa General Contracting","telephone":"+19096823930","address":{"@type":"PostalAddress","addressLocality":"Ontario","addressRegion":"CA"},"areaServed":"Inland Empire","url":"https://Prktik1013.github.io/villa-general-contracting/"}
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-od-id="nav">
+    <div class="container header-inner">
+      <a href="#main" class="logo" aria-label="Villa General Contracting home">Villa <span>GC</span></a>
+      <nav class="nav-desktop" id="navDesktop" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-phone tabular" href="tel:+19096823930">(909) 682-3930</a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navMobile">Menu</button>
+      </div>
+    </div>
+    <nav class="nav-mobile" id="navMobile" aria-label="Mobile">
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+      <a class="tabular" href="tel:+19096823930">(909) 682-3930</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" data-od-id="hero">
+      <div class="hero-grid">
+        <div class="hero-copy hero-enter">
+          <p class="eyebrow hero-anim">Ontario CA / Inland Empire industrial</p>
+          <h1 class="hero-anim">Shells built to your ship date</h1>
+          <p class="hero-lead hero-anim">Villa mobilizes warehouses and plants on schedule: steel, tilt-up, and crane work that protects your production line.</p>
+          <div class="hero-cta hero-anim">
+            <a class="btn btn-primary" href="#contact">Contact us</a>
+            <a class="btn btn-secondary tabular" href="tel:+19096823930">Call (909) 682-3930</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img
+            src="https://picsum.photos/seed/villa-gc-warehouse-shell-ontario/960/1100"
+            width="960"
+            height="1100"
+            alt="Industrial warehouse shell under construction with steel and concrete structure"
+            fetchpriority="high"
+          />
+          <div class="hero-visual-cap"><span>Pre-mob site walks</span> before cranes roll</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="trust-strip reveal" data-od-id="trust">
+      <div class="container">
+        <ul class="trust-list">
+          <li>On-schedule warehouse shells</li>
+          <li>First-pass industrial inspections</li>
+          <li>Crane and rigging coordination</li>
+          <li>Safety compliance built in</li>
+          <li>Commission before line ships</li>
+        </ul>
+      </div>
+    </div>
+
+    <section id="services" data-od-id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Built for heavy industrial program owners</h2>
+          <p>Greenfield distribution hubs and manufacturing expansions along the 10/15 corridor. We speak schedule, steel, and concrete.</p>
+        </div>
+        <div class="services-bento">
+          <article class="svc svc-featured reveal reveal-d1">
+            <div class="svc-img">
+              <img
+                src="https://picsum.photos/seed/villa-gc-tilt-up-distribution/720/520"
+                width="720"
+                height="520"
+                alt="Tilt-up warehouse distribution facility exterior"
+                loading="lazy"
+              />
+            </div>
+            <div class="svc-body">
+              <h3>Warehouse and distribution shells</h3>
+              <p>Clear-span structures, dock pits, and fire-separated zones delivered to match your racking and MHE layout.</p>
+              <ul>
+                <li>Tilt-up and precast coordination</li>
+                <li>On-schedule dry-in milestones</li>
+                <li>Owner rep and inspector walkthroughs</li>
+              </ul>
+            </div>
+          </article>
+          <article class="svc svc-steel reveal reveal-d2">
+            <h3>Manufacturing and process plants</h3>
+            <p>Steel frame bays, equipment pads, and overhead crane paths integrated before production equipment arrives.</p>
+            <ul>
+              <li>Structural steel and embeds</li>
+              <li>Crane picks and shutdown windows</li>
+              <li>Commissioning-ready turnover</li>
+            </ul>
+          </article>
+          <article class="svc svc-accent reveal reveal-d3">
+            <h3>Industrial concrete and civil</h3>
+            <p>Heavy-duty slabs, truck courts, and utility trenches that pass geotech and agency review the first time.</p>
+            <ul>
+              <li>Reinforced tilt-up panels</li>
+              <li>SWPPP and safety compliance</li>
+              <li>Documented closeout packages</li>
+            </ul>
+          </article>
+          <article class="svc svc-span reveal reveal-d4">
+            <h3>Pre-construction and site walks</h3>
+            <p>We walk the dirt with your team before mobilization. Access, staging, and crane paths locked before the first pour.</p>
+            <ul>
+              <li>Scope and logistics review on site</li>
+              <li>Realistic production schedule input</li>
+              <li>Risk surfaced before buyout</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" data-od-id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Industrial work across the Inland Empire</h2>
+          <p>Representative program types. Facility names withheld per owner request. Ask about tilt-up, steel, and schedule performance on your corridor.</p>
+        </div>
+        <div class="projects-grid">
+          <article class="project-tile wide reveal reveal-d1">
+            <img src="https://picsum.photos/seed/villa-gc-logistics-hub-ontario/900/1100" width="900" height="1100" alt="Large logistics warehouse shell in Ontario CA" loading="lazy" />
+            <div class="project-meta">
+              <h3>450k SF logistics hub</h3>
+              <p>Ontario CA / Tilt-up shell / On-schedule dry-in</p>
+            </div>
+          </article>
+          <article class="project-tile reveal reveal-d2">
+            <img src="https://picsum.photos/seed/villa-gc-food-grade-plant/640/480" width="640" height="480" alt="Food-grade manufacturing plant steel structure" loading="lazy" />
+            <div class="project-meta">
+              <h3>Food-grade manufacturing</h3>
+              <p>Rancho Cucamonga / Steel frame / First-time inspection pass</p>
+            </div>
+          </article>
+          <article class="project-tile reveal reveal-d3">
+            <img src="https://picsum.photos/seed/villa-gc-crossdock-fontana/640/480" width="640" height="480" alt="Cross-dock distribution yard and building" loading="lazy" />
+            <div class="project-meta">
+              <h3>Last-mile distribution</h3>
+              <p>Fontana / Cross-dock and yard / Crane coordination</p>
+            </div>
+          </article>
+          <article class="project-tile reveal reveal-d4">
+            <img src="https://picsum.photos/seed/villa-gc-auto-supplier-sb/640/480" width="640" height="480" alt="Automotive supplier plant with equipment pads" loading="lazy" />
+            <div class="project-meta">
+              <h3>Automotive supplier plant</h3>
+              <p>San Bernardino / Equipment pads / Commissioned pre-line ship</p>
+            </div>
+          </article>
+          <article class="project-tile reveal reveal-d4">
+            <img src="https://picsum.photos/seed/villa-gc-cold-storage-tilt/640/480" width="640" height="480" alt="Cold storage insulated tilt-up building" loading="lazy" />
+            <div class="project-meta">
+              <h3>Cold storage expansion</h3>
+              <p>Ontario / Insulated tilt-up / Safety-led site</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" data-od-id="process">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>From site walk to turnover</h2>
+          <p>Accountability starts before mobilization so your production date stays the anchor, not the casualty.</p>
+        </div>
+        <div class="process-track reveal">
+          <div class="process-step">
+            <div class="verb">Walk</div>
+            <h3>Site walk and scope</h3>
+            <p>Walk the pad with your team. Confirm access, utilities, crane staging, and inspection path before buyout hardens.</p>
+          </div>
+          <div class="process-step">
+            <div class="verb">Plan</div>
+            <h3>Schedule and buyout</h3>
+            <p>Steel, tilt, and civil packages aligned to a published milestone chart. No vague substantial completion language.</p>
+          </div>
+          <div class="process-step">
+            <div class="verb">Build</div>
+            <h3>Mobilize and construct</h3>
+            <p>Crew, crane, and concrete coordinated under a safety-first site plan. Owner reps invited at hold points.</p>
+          </div>
+          <div class="process-step">
+            <div class="verb">Close</div>
+            <h3>Inspect and commission</h3>
+            <p>Agency and client inspections cleared, punch closed, and turnover docs in hand before your line ships.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band reveal" data-od-id="testimonial">
+      <div class="container">
+        <blockquote>
+          "Villa mobilized on the committed date, kept crane picks off our operating hours, and we passed industrial inspection on the first walk."
+        </blockquote>
+        <cite>Facilities director, Inland Empire distribution center</cite>
+      </div>
+    </section>
+
+    <section id="contact" data-od-id="contact">
+      <div class="container booking-layout">
+        <div class="booking-aside reveal">
+          <p class="eyebrow">Contact</p>
+          <h2>Talk to Villa before you mobilize anyone else</h2>
+          <p>Send a message about your facility program. We follow up at the number or email you provide.</p>
+          <div class="call-block">
+            <p class="call-kicker">Direct line</p>
+            <a class="tabular" href="tel:+19096823930">(909) 682-3930</a>
+            <p class="call-hours">Mon-Fri, roughly 7:00 AM - 5:00 PM PT</p>
+          </div>
+        </div>
+        <div class="booking-panel reveal reveal-d1">
+          <form id="contactForm" novalidate>
+            <div class="field" data-field="contactName">
+              <label for="contactName">Your name</label>
+              <input type="text" id="contactName" name="contactName" required autocomplete="name" />
+              <span class="err-msg">Enter your name.</span>
+            </div>
+            <div class="field" data-field="company">
+              <label for="company">Company / owner entity</label>
+              <input type="text" id="company" name="company" required autocomplete="organization" />
+              <span class="err-msg">Enter your company name.</span>
+            </div>
+            <div class="field" data-field="email">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email" />
+              <span class="err-msg">Enter a valid email.</span>
+            </div>
+            <div class="field" data-field="phone">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" required placeholder="(909) 555-0100" autocomplete="tel" />
+              <span class="err-msg">Enter a valid phone number.</span>
+            </div>
+            <div class="field" data-field="topic">
+              <label for="topic">Topic</label>
+              <select id="topic" name="topic" required>
+                <option value="">Select...</option>
+                <option value="project">New project inquiry</option>
+                <option value="estimate">Estimate / bid question</option>
+                <option value="site-walk">Site walk request</option>
+                <option value="existing">Active job / change order</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="err-msg">Select a topic.</span>
+            </div>
+            <div class="field" data-field="message">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Facility location, program type, timeline, and how we can help."></textarea>
+              <span class="err-msg">Enter a short message.</span>
+            </div>
+            <div class="field" data-field="agree">
+              <label class="agree-label" for="agree">
+                <input type="checkbox" id="agree" name="agree" required />
+                <span>I agree that Villa GC may contact me using the email and phone provided. This form is not a bid or contract.</span>
+              </label>
+              <span class="err-msg">Please confirm to send.</span>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="btnSubmit">Send message</button>
+            </div>
+            <p class="form-note" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="admin-panel" id="adminPanel" data-od-id="admin-contact">
+            <div class="admin-toolbar">
+              <h3>Crew / admin: pending contact messages</h3>
+              <button type="button" class="btn btn-ghost" id="toggleAdmin">Show crew view</button>
+              <button type="button" class="btn btn-ghost" id="refreshAdmin">Refresh list</button>
+            </div>
+            <div class="admin-table-wrap">
+              <table class="admin-table" aria-label="Pending contact messages">
+                <thead>
+                  <tr>
+                    <th>Submitted</th>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Topic</th>
+                    <th>Message</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody id="adminTableBody"></tbody>
+              </table>
+            </div>
+            <p class="form-note">Stored locally in this browser for demo and crew review. Production should sync to your CRM.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container contact-details">
+        <div class="contact-strip reveal">
+          <div class="contact-cell">
+            <h3>Phone</h3>
+            <a class="phone-lg tabular" href="tel:+19096823930">(909) 682-3930</a>
+            <p class="contact-note">Estimating and project inquiries, Inland Empire industrial</p>
+          </div>
+          <div class="contact-cell">
+            <h3>Service area</h3>
+            <p>Ontario CA, Rancho Cucamonga, Fontana, San Bernardino, Eastvale, and the greater Inland Empire industrial corridor.</p>
+          </div>
+          <div class="contact-cell">
+            <h3>Office hours</h3>
+            <p>Monday-Friday, 7:00 AM - 5:00 PM PT. Emergency site issues: call the main line.</p>
+          </div>
+          <div class="contact-cell">
+            <h3>Prefer to call</h3>
+            <p>Reach estimating at <a class="tabular" href="tel:+19096823930">(909) 682-3930</a> with your production milestone.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="legal-band" data-od-id="legal">
+      <div class="container legal-grid">
+        <section id="privacy" class="legal-note">
+          <h2>Privacy</h2>
+          <p>Contact form submissions are stored in your browser for this demo. Production deployments should route messages to Villa GC systems and retain only what is needed to respond.</p>
+        </section>
+        <section id="terms" class="legal-note">
+          <h2>Terms</h2>
+          <p>Sending a contact message does not create a contract or bid obligation. Responses are subject to crew availability and the details you provide.</p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer data-od-id="footer">
+    <div class="container footer-grid">
+      <div>
+        <a href="#main" class="logo">Villa <span>GC</span></a>
+        <p class="footer-blurb">Industrial general contracting for steel, tilt-up, and schedule accountability.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="tabular" href="tel:+19096823930">(909) 682-3930</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p class="footer-copy">&copy; <span id="year"></span> Villa General Contracting. All rights reserved. Ontario, California.</p>
+      <div class="footer-legal">
+        <a href="#privacy">Privacy</a>
+        <a href="#terms">Terms</a>
+      </div>
+    </div>
+  <p class="footer-meta rf-legal" id="rf-legal" style="font-size:0.78rem;opacity:0.75;margin-top:1rem;max-width:52rem">This is a one-time website build. You own all delivered site files and may host or modify them yourself. The site is provided as-is after delivery. We do not guarantee rankings, leads, or revenue. You are responsible for accuracy of your business information, domain registration, and hosting. This site was produced with AI-assisted tools and human review.</p>
+</footer>
+
+  <div class="sticky-call" data-od-id="sticky-call">
+    <a class="btn btn-primary tabular" href="tel:+19096823930">Call (909) 682-3930</a>
+  </div>
+
+  <script>
+    (function () {
+      var STORAGE_KEY = "villa_gc_contact_messages";
+      var DRAFT_KEY = "villa_gc_contact_draft";
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      var menuToggle = document.getElementById("menuToggle");
+      var navMobile = document.getElementById("navMobile");
+      menuToggle.addEventListener("click", function () {
+        var open = navMobile.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+      navMobile.querySelectorAll("a").forEach(function (a) {
+        a.addEventListener("click", function () {
+          navMobile.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      var form = document.getElementById("contactForm");
+      var formStatus = document.getElementById("formStatus");
+      var draftTimer = null;
+
+      function loadDraft() {
+        try {
+          var raw = localStorage.getItem(DRAFT_KEY);
+          if (!raw) return;
+          var data = JSON.parse(raw);
+          Object.keys(data).forEach(function (key) {
+            var el = form.elements[key];
+            if (!el) return;
+            if (el.type === "checkbox") el.checked = !!data[key];
+            else el.value = data[key];
+          });
+        } catch (e) {}
+      }
+
+      function saveDraft() {
+        var data = {};
+        Array.prototype.slice.call(form.elements).forEach(function (el) {
+          if (!el.name) return;
+          data[el.name] = el.type === "checkbox" ? el.checked : el.value;
+        });
+        try {
+          localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+        } catch (e) {
+          /* draft is best-effort */
+        }
+      }
+
+      function scheduleDraft() {
+        if (draftTimer) clearTimeout(draftTimer);
+        draftTimer = setTimeout(saveDraft, 250);
+      }
+
+      function phoneValid(v) {
+        var digits = (v || "").replace(/\D/g, "");
+        return digits.length >= 10;
+      }
+
+      function validateForm() {
+        var valid = true;
+        form.querySelectorAll(".field").forEach(function (wrap) {
+          wrap.classList.remove("error");
+          var fieldName = wrap.getAttribute("data-field");
+          if (!fieldName) return;
+          var el = form.elements[fieldName];
+          if (!el) return;
+          var fail = false;
+          if (fieldName === "agree") fail = !el.checked;
+          else if (el.type === "email") fail = !el.value || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value);
+          else if (el.type === "tel" || fieldName === "phone") fail = !phoneValid(el.value);
+          else if (el.hasAttribute("required")) fail = !String(el.value || "").trim();
+          if (fail) {
+            wrap.classList.add("error");
+            valid = false;
+          }
+        });
+        return valid;
+      }
+
+      function escapeHtml(s) {
+        var d = document.createElement("div");
+        d.textContent = s;
+        return d.innerHTML;
+      }
+
+      function topicLabel(value) {
+        var el = form.topic;
+        if (!el) return value || "";
+        var opt = el.options[el.selectedIndex];
+        return opt && opt.value ? opt.text : value || "";
+      }
+
+      form.addEventListener("input", scheduleDraft);
+      form.addEventListener("change", scheduleDraft);
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        if (!validateForm()) return;
+        var record = {
+          id: "msg_" + Date.now(),
+          status: "pending",
+          submittedAt: new Date().toISOString(),
+          company: form.company.value.trim(),
+          contactName: form.contactName.value.trim(),
+          email: form.email.value.trim(),
+          phone: form.phone.value.trim(),
+          topic: form.topic.value,
+          topicLabel: topicLabel(form.topic.value),
+          message: form.message.value.trim()
+        };
+        var list = [];
+        try {
+          list = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        } catch (err) {
+          list = [];
+        }
+        list.push(record);
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+          localStorage.removeItem(DRAFT_KEY);
+        } catch (err) {
+          formStatus.style.color = "var(--danger)";
+          formStatus.textContent = "Message could not be saved locally. Please call (909) 682-3930.";
+          return;
+        }
+        formStatus.style.color = "var(--success)";
+        formStatus.textContent = "Message sent. Our team will reply soon, or call (909) 682-3930.";
+        form.reset();
+        renderAdminTable();
+      });
+
+      function renderAdminTable() {
+        var tbody = document.getElementById("adminTableBody");
+        var list = [];
+        try {
+          list = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        } catch (e) {
+          list = [];
+        }
+        var pending = list.filter(function (r) { return r.status === "pending"; });
+        tbody.innerHTML = pending.length
+          ? pending.map(function (r) {
+              var msg = r.message || "";
+              var short = msg.length > 80 ? msg.slice(0, 80) + "…" : msg;
+              return "<tr><td>" + new Date(r.submittedAt).toLocaleString() + "</td><td>" + escapeHtml(r.company) +
+                "</td><td>" + escapeHtml(r.contactName) + "<br>" + escapeHtml(r.phone) + "<br>" + escapeHtml(r.email) +
+                "</td><td>" + escapeHtml(r.topicLabel || r.topic) +
+                "</td><td>" + escapeHtml(short) +
+                "</td><td><span class=\"badge-pending\">pending</span></td></tr>";
+            }).join("")
+          : "<tr><td colspan=\"6\">No pending messages in local storage.</td></tr>";
+      }
+
+      var adminPanel = document.getElementById("adminPanel");
+      var toggleAdmin = document.getElementById("toggleAdmin");
+      toggleAdmin.addEventListener("click", function () {
+        adminPanel.classList.toggle("visible");
+        toggleAdmin.textContent = adminPanel.classList.contains("visible") ? "Hide crew view" : "Show crew view";
+        if (adminPanel.classList.contains("visible")) renderAdminTable();
+      });
+      document.getElementById("refreshAdmin").addEventListener("click", renderAdminTable);
+
+      if (location.search.indexOf("crew=1") !== -1) {
+        adminPanel.classList.add("visible");
+        toggleAdmin.textContent = "Hide crew view";
+        renderAdminTable();
+      }
+
+      loadDraft();
+
+      var sectionIds = ["services", "projects", "process", "contact"];
+      var navLinks = Array.prototype.slice.call(
+        document.querySelectorAll("#navDesktop a[href^='#'], #navMobile a[href^='#']")
+      );
+      function setActiveNav() {
+        var y = window.scrollY + 120;
+        var currentId = "";
+        sectionIds.forEach(function (id) {
+          var el = document.getElementById(id);
+          if (el && el.offsetTop <= y) currentId = id;
+        });
+        navLinks.forEach(function (link) {
+          var href = link.getAttribute("href") || "";
+          var id = href.charAt(0) === "#" ? href.slice(1) : "";
+          link.classList.toggle("is-active", id === currentId && id !== "");
+        });
+      }
+      window.addEventListener("scroll", setActiveNav, { passive: true });
+      setActiveNav();
+
+      /* Motion: scroll reveals (transform/opacity). Skip if reduced motion. */
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var revealObserver = null;
+      if (!reduceMotion && "IntersectionObserver" in window) {
+        var reveals = Array.prototype.slice.call(document.querySelectorAll(".reveal"));
+        revealObserver = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-in");
+              revealObserver.unobserve(entry.target);
+            });
+          },
+          { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+        );
+        reveals.forEach(function (el) { revealObserver.observe(el); });
+      } else {
+        Array.prototype.slice.call(document.querySelectorAll(".reveal")).forEach(function (el) {
+          el.classList.add("is-in");
+        });
+      }
+
+      window.addEventListener("pagehide", function () {
+        if (revealObserver) revealObserver.disconnect();
+      });
+    })();
+  </script>
+</body>
+</html>
